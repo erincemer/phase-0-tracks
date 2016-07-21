@@ -5,10 +5,10 @@ puts "What is the client's name?"
 client[:name] = gets.chomp
 
 puts "What is the client's age?"
-client[:age] = gets.chomp
+client[:age] = gets.chomp.to_i
 
 puts "How many children does the client have?"
-client[:number_of_children] = gets.chomp
+client[:number_of_children] = gets.chomp.to_i
 
 puts "What decor theme does client desire?"
 client[:decor_theme] = gets.chomp
@@ -31,12 +31,12 @@ loop do
 
 	elsif answer == "age"
 		puts "What is the age supposed to be?"
-		new_age = gets.chomp
+		new_age = gets.chomp.to_i
 		client[:age] = new_age
 
 	elsif answer == "number_of_children"
 		puts "What is the number of children supposed to be?"
-		new_number_of_children = gets.chomp
+		new_number_of_children = gets.chomp.to_i
 		client[:number_of_children] = new_number_of_children
 
 	elsif answer == "decor_theme"
