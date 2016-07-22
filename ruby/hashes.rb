@@ -40,7 +40,7 @@ loop do
 		client[:number_of_children] = new_number_of_children
 
 	elsif answer == "decor_theme"
-		puts "What is the decor theme supposed to be?"
+		puts "What is decor theme supposed to be?"
 		new_decor_theme = gets.chomp
 		client[:decor_theme] = new_decor_theme
 
