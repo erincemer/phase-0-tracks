@@ -8,3 +8,13 @@ menu = {
 	dessert: ["chocolate lava cake", "cheesecake"],
 	drinks: []
 }
+
+menu[:entrees][:from_the_ocean][2]
+
+menu[:entrees][:chicken].last
+
+menu[:drinks].push("sodas", "lemonade", "beer", "wine")
+
+menu[:drinks]
+
+menu[:entrees][:vegetarian].first
