@@ -1,4 +1,4 @@
-def mixer(name)
+def faker(name)
 vowels = ["a", "e", "i", "o", "u"]
 consonants= ["b", "c", "d", "f", "g", "h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"]
 new_name = name.split(" ").rotate
@@ -23,4 +23,25 @@ letters = swapped_name.downcase.split("")
 	p arr.join(" ")
 end
 
-mixer("felicia torres")
+#faker("felicia torres")
+
+puts "Please type a name so we can create a fake name"
+name = gets.chomp
+fake_names = []
+answer_arr = []
+loop do
+	if name == "quit"
+		break
+	else
+	fake_names.push(faker(name))
+	answer_arr.push(name)
+	end
+	puts "More names?"
+	name = gets.chomp
+end
+
+i = 0
+while i < fake_names.length
+	puts fake_names[i] + " is actually " + answer_arr[i] + "."
+	i += 1
+end
