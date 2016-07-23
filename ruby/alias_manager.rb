@@ -27,21 +27,15 @@ end
 
 puts "Please type a name so we can create a fake name"
 name = gets.chomp
-fake_names = []
-answer_arr = []
+hash = {}
 loop do
 	if name == "quit"
 		break
 	else
-	fake_names.push(faker(name))
-	answer_arr.push(name)
+	hash[faker(name)] = name
 	end
 	puts "More names?"
 	name = gets.chomp
 end
 
-i = 0
-while i < fake_names.length
-	puts fake_names[i] + " is actually " + answer_arr[i] + "."
-	i += 1
-end
+hash.each {|fake, real| puts fake + " is actually " + real + "."}
