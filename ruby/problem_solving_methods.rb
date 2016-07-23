@@ -7,7 +7,7 @@ def search(arr, int)
 	ind = 0
 	while ind < arr.length
 		if arr.include?(int) == false
-			p nil
+			return nil
 			break
 
 
