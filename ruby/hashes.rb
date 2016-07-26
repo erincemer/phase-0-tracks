@@ -15,7 +15,9 @@ client[:decor_theme] = gets.chomp
 
 p client
 
-
+#create a loop that keep asks the user some questions and if user wants
+#to make any changes to those answers until the user types "none"
+#update the asnwers if there is any change
 loop do
 
 
