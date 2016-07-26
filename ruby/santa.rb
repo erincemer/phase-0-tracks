@@ -7,7 +7,7 @@ class Santa
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0
+    @age = rand(140)
   end
 
   def speak
@@ -30,6 +30,9 @@ class Santa
 
 end
 
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
 #santa = Santa.new("male", "black")
 #santa.speak
 #santa.eat_milk_and_cookies("muffin")
@@ -42,3 +45,8 @@ end
 #p santa.gender
 #santa.gender = "female"
 #p santa.gender
+
+10.times do |santa|
+	santa = Santa.new((example_genders).sample, (example_ethnicities).sample)
+	p santa
+end
