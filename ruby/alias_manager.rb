@@ -19,8 +19,9 @@ letters = swapped_name.downcase.split("")
 		end
 	end
 	arr = letters.join("").split(" ")
-	arr.map! {|word|	word.capitalize}
+	arr.map! {|word| word.capitalize}
 	p arr.join(" ")
+	
 end
 
 #faker("felicia torres")
