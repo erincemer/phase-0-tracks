@@ -80,3 +80,14 @@ add_item(list, "ice cream", 4)
 remove_item(list, "lemonade")
 update(list, "ice cream", 1)
 display(list)
+
+
+#Release 5
+#- Pseudocode helped me to construct my code. It is helpful go back and check what we have
+#in our pseudocode when we write our code.
+#- We needed to split the string of the long list to make convert them to an array of
+#strings so we could map or each them to make them hash.
+#- Last declared print or return value
+#- String, array, Hash
+#- It took us a while to find out how to make our hash global($). But everything is
+#clear now. 
