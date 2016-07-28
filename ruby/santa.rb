@@ -1,6 +1,6 @@
 class Santa
    attr_reader :age, :ethnicity
-   attr_accessor:gender
+   attr_accessor :gender
 
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance..."
@@ -11,11 +11,11 @@ class Santa
   end
 
   def speak
-    puts "Ho, ho, ho! Haaaapy holidays!"
+    "Ho, ho, ho! Haaaapy holidays!"
   end
 
   def eat_milk_and_cookies(cookie)
-    puts "That was a good #{cookie}."
+    "That was a good #{cookie}."
   end
 
   def celebrate_birthday
@@ -23,8 +23,7 @@ class Santa
   end
 
   def get_mad_at(reindeer)
-  	@reindeer_ranking.delete(reindeer)
-  	@reindeer_ranking.push(reindeer)
+  	@reindeer_ranking.push(@reindeer_ranking.delete(reindeer))
   	p @reindeer_ranking
   end
 
@@ -36,7 +35,7 @@ example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer n
 #santa = Santa.new("male", "black")
 #santa.speak
 #santa.eat_milk_and_cookies("muffin")
-##santa.get_mad_at("Vixen")
+#santa.get_mad_at("Vixen")
 #santa.celebrate_birthday
 #santa.celebrate_birthday
 #
@@ -46,7 +45,11 @@ example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer n
 #santa.gender = "female"
 #p santa.gender
 
+
 10.times do |santa|
+
 	santa = Santa.new((example_genders).sample, (example_ethnicities).sample)
+
 	p santa
+
 end
