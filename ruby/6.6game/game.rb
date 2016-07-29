@@ -10,21 +10,32 @@ class WordGame
 		@guess_count = 0
 		@word = word
 		@is_over = false
-		@secret = word.split("").each {|letter| print letter = "*"}
+		@secret = []
 		@guesses = []
 	end
 
+	def encode
+		@encoded_word = []
+		@word.length.times {@encoded_word << "*"}
+		p @encoded_word.join
+	end
 
+	def decode(letter)
+		@encoded_word[@word.index(letter)] = letter
+		p @encoded_word.join
+
+	end
 
 	def guess(letter)
 		@guess_count += 1
 		@guesses << letter
+
 		if @word.include? letter
 			puts "You guessed it right!"
+			decode(letter)
 			if @guesses.count(letter) > 1
 				@guess_count -= 1
 			end
-
 		else
 			puts "No, that is not the one!"
 
@@ -32,8 +43,6 @@ class WordGame
 				@guess_count -= 1
 			end
 		end
-
-
 	end
 
 end
@@ -41,11 +50,14 @@ end
 game = WordGame.new("bok")
 
 
-
+puts "Welcome to the word game!"
+game.encode
 while game.guess_count < game.word.length
 
-	puts "\nPlease make a guess."
+	puts "Please make a letter guess to find the word."
+
 	input = gets.chomp
+
 	game.guess(input)
 
 end
