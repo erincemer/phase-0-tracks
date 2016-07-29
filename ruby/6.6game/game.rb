@@ -4,7 +4,7 @@
 
 class WordGame
 	attr_reader :word
-	attr_accessor :guess_count
+	attr_accessor :guess_count, :encoded_word
 
 	def initialize(word)
 		@guess_count = 0
@@ -55,9 +55,9 @@ game.encode
 while game.guess_count < game.word.length
 
 	puts "Please make a letter guess to find the word."
-
 	input = gets.chomp
-
 	game.guess(input)
-
+	if game.encoded_word.join != game.word
+		puts "You ran out of chances. Please start over."
+	end
 end
