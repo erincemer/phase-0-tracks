@@ -4,20 +4,21 @@
 
 class WordGame
 	attr_reader :word
+	attr_accessor :guess_count
 
 	def initialize(word)
-		@gueess_count = word.length
+		@guess_count = 0
 		@word = word
 		@is_over = false
 	end
 
 	#def pick_word(word)
 	#	@word = word
-	#	@gueess_count = word.length
+	#	@guess_count = word.length
 	#end
 
 	def guess(string)
-		@gueess_count += 1
+		@guess_count += 1
 		if string == @word
 			puts "You guessed it right! Congrats!"
 		else
@@ -30,4 +31,10 @@ class WordGame
 end
 
 game = WordGame.new("apple")
-game.guess("apple")
+#game.guess("apple")
+
+while game.guess_count < game.word.length
+	puts "make a guess"
+	input = gets.chomp
+	game.guess(input)
+end
