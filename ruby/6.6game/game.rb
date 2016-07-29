@@ -10,31 +10,42 @@ class WordGame
 		@guess_count = 0
 		@word = word
 		@is_over = false
+		@secret = word.split("").each {|letter| print letter = "*"}
+		@guesses = []
 	end
 
-	#def pick_word(word)
-	#	@word = word
-	#	@guess_count = word.length
-	#end
 
-	def guess(string)
+
+	def guess(letter)
 		@guess_count += 1
-		if string == @word
-			puts "You guessed it right! Congrats!"
+		@guesses << letter
+		if @word.include? letter
+			puts "You guessed it right!"
+			if @guesses.count(letter) > 1
+				@guess_count -= 1
+			end
+
 		else
 			puts "No, that is not the one!"
+
+			if @guesses.count(letter) > 1
+				@guess_count -= 1
+			end
 		end
+
+
 	end
-
-
 
 end
 
-game = WordGame.new("apple")
-#game.guess("apple")
+game = WordGame.new("bok")
+
+
 
 while game.guess_count < game.word.length
-	puts "make a guess"
+
+	puts "\nPlease make a guess."
 	input = gets.chomp
 	game.guess(input)
+
 end
