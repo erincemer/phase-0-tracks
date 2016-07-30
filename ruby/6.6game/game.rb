@@ -23,7 +23,6 @@ class WordGame
 	def decode(letter)
 		@encoded_word[@word.index(letter)] = letter
 		p @encoded_word.join
-
 	end
 
 	def guess(letter)
@@ -38,7 +37,7 @@ class WordGame
 			end
 		else
 			puts "No, that is not the one!"
-
+			p @encoded_word.join
 			if @guesses.count(letter) > 1
 				@guess_count -= 1
 			end
@@ -52,12 +51,19 @@ game = WordGame.new("bok")
 
 puts "Welcome to the word game!"
 game.encode
-while game.guess_count < game.word.length
+while game.guess_count < game.word.length * 2
 
 	puts "Please make a letter guess to find the word."
 	input = gets.chomp
 	game.guess(input)
-	if game.encoded_word.join != game.word
-		puts "You ran out of chances. Please start over."
+	if game.encoded_word.join == game.word
+		puts"You found the word! Congrats!"
+		break
 	end
+
 end
+
+
+#if game.encoded_word.join != game.word
+#		puts "You ran out of chances. Please start over."
+#	end
