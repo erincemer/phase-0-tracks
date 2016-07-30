@@ -51,7 +51,7 @@ class WordGame
 		all
 	end
 # create a method that will check if the guessed letter is in the word and print messages accordingly.
-#at the bottom of the method, print a message stating how many chances left to guess.
+#at the bottom of the method, print a message stating how many chances left to guess AFTER EACH guess.
 	def guess(letter)
 		@guess_count += 1
 		@guesses << letter
