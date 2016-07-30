@@ -12,6 +12,7 @@ class WordGame
 		@is_over = false
 		@secret = []
 		@guesses = []
+
 	end
 
 	def encode
@@ -20,9 +21,31 @@ class WordGame
 		p @encoded_word.join
 	end
 
+	def join_the_letters
+
+	end
+
 	def decode(letter)
-		@encoded_word[@word.index(letter)] = letter
-		p @encoded_word.join
+
+		if @word.split("").count(letter) > 1
+			@index = find_index(letter)
+			@index.each do |ind|
+				@encoded_word[ind]	= letter
+				p @encoded_word.join
+			end
+		else
+			@encoded_word[@word.index(letter)] = letter
+			p @encoded_word.join
+		end
+	end
+
+	def find_index(letter)
+		i = -1
+		all = []
+		while i = @word.index(letter, i+1)
+			all << i
+		end
+		all
 	end
 
 	def guess(letter)
@@ -44,9 +67,10 @@ class WordGame
 		end
 	end
 
+
 end
 
-game = WordGame.new("bok")
+game = WordGame.new("book")
 
 
 puts "Welcome to the word game!"
@@ -60,10 +84,4 @@ while game.guess_count < game.word.length * 2
 		puts"You found the word! Congrats!"
 		break
 	end
-
 end
-
-
-#if game.encoded_word.join != game.word
-#		puts "You ran out of chances. Please start over."
-#	end
