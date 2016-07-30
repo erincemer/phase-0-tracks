@@ -13,17 +13,17 @@ class WordGame
 		@secret = []
 		@guesses = []
 		@number_of_guesses = 0
-
+		@encoded_word = []
 	end
 
 	def encode
-		@encoded_word = []
+
 		@word.length.times {@encoded_word << "*"}
 		join_the_letters
 	end
 
 	def join_the_letters
-		p @encoded_word.join
+		 p @encoded_word.join
 	end
 
 #create method(s) to print the decoded version after EACH guess.
@@ -38,7 +38,7 @@ class WordGame
 			end
 		else
 			@encoded_word[@word.index(letter)] = letter
-			join_the_letters
+			 join_the_letters
 		end
 	end
 
@@ -70,6 +70,7 @@ class WordGame
 			end
 		end
 		puts "You have #{@word.length * 2 - @guess_count} chances left."
+		join_the_letters
 	end
 end
 
@@ -78,9 +79,11 @@ game = WordGame.new("book")
 puts "Welcome to the word game! Below is your word, ofcourse, encoded. You can see how long it is though!"
 
 #invoke the encode method so user will know how long the word is.
+
 game.encode
 
-#create a loop that keep telling the user to guess a letter UNTIL decided chances of guesses reached. IF a word is found before all the chances are used, BREAK.
+#
+##create a loop that keep telling the user to guess a letter UNTIL decided chances of guesses #reached. IF a word is found before all the chances are used, BREAK.
 
 while game.guess_count < game.word.length * 2
 	puts "Please make a letter guess to start to decode. ONE letter at a time!"
