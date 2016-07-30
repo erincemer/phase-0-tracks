@@ -18,10 +18,15 @@ describe WordGame do
   end
 
   it "guesses a letter to see if the word contains it" do
-
     game.encode
-
     expect(game.guess("b")).to eq "b***"
+  end
+
+  it "decodes the word that it prints the updated the word whether
+      the user guesses right or not" do
+    game.encode
+    game.join_the_letters
+    expect(game.decode("o")).to eq "*oo*"
   end
 
 
