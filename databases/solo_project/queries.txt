@@ -1,0 +1,24 @@
+RELEASE 2
+
+1- Display the information in one table (either table is fine).
+select * from doctors;
+
+2- Update an item that meets some condition (you can choose a condition that makes sense).
+update doctors set age=53 where name="John Miller";
+
+3- Display the information in both tables using one query.
+SELECT * FROM doctors, countries WHERE doctors.country_id = countries.id;
+
+4- Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+SELECT doctors.name,doctors.age,  countries.name FROM doctors JOIN countries ON doctors.country_id = countries.id;
+
+5- Delete an item that meets some condition (you can choose a condition that makes sense).
+delete from doctors where nobel="true";
+
+RELEASE 3
+
+1- Cross, inner and outer joins.
+2- select doctors.name, countries.name, doctors.age from doctors INNER JOIN countries ON doctors.country_id = countries.id;
+select doctors.id, doctors.name, countries.name from doctors left outer JOIN countries ON doctors.country_id=countries.id;
+
+http://www.tutorialspoint.com/sqlite/sqlite_using_joins.htm
