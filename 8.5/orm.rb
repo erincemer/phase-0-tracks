@@ -45,36 +45,67 @@ def display(db)
   end
   puts"-------------"
 end
-#display(db)
+display(db)
 
-def delete(db, name)
+def delete_beer(db, name)
   db.execute("DELETE from beer_menu WHERE name=?",[name])
   display(db)
 end
 
-delete(db, "Duvel")
+#delete_beer(db, "Duvel")
 
 def update_menu(db)
 
   puts"--------------"
-  puts"What would you like to update in the beer menu?"
-  input = gets.chomp
+
   loop do
+    puts"What would you like to update in the beer menu? Choose between name, style, alcohol or price."
+    input = gets.chomp
     if input == "done"
       display(db)
       break
     elsif input =="name"
-      puts"Which beer name you would like to edit?"
-      name_to_edit=gets.chomp
-      #puts"What should be the correct beer name?"
-      #beer=gets.chomp
-      db.execute("UPDATE beer_menu SET name='tuborg' where name='name_to_edit'")
+
+      #puts"Which beer name you would like to edit?"
+      #name_to_edit=gets.chomp
+      puts"What should be the correct beer name?"
+      name=gets.chomp
+      db.execute("UPDATE beer_menu SET name=? WHERE name='Tuborg'",[name])
       display(db)
-      break
+    elsif input=="style"
+      puts"Which beer you would like to edit?"
+      name=gets.chomp
+      puts"What should be the correct style?"
+      style=gets.chomp
+      db.execute("UPDATE beer_menu SET style=? WHERE name=?",[style, name])
+      display(db)
+    elsif input=="alcohol"
+      puts"Which beer you would like to edit?"
+      name=gets.chomp
+      input=="alcohol"
+      puts"What should be the correct alcohol percentage?"
+      alcohol=gets.chomp
+      db.execute("UPDATE beer_menu SET alcohol=? WHERE name=?",[alcohol, name])
+      display(db)
+    elsif input=="price"
+      puts"Which beer you would like to edit?"
+      name=gets.chomp
+      input=="price"
+      puts"What should be the correct price?"
+      price=gets.chomp
+      db.execute("UPDATE beer_menu SET price=? WHERE name=?",[price, name])
+      display(db)
     else
+      puts "Please type correct input."
 
     end
 
   end
 end
 #update_menu(db)
+
+def add_beer(db, name, style, alcohol, price)
+  db.execute("INSERT INTO beer_menu(name, style, alcohol, price) VALUES(?, ?, ?, ?)", [name, style, alcohol, price])
+  display(db)
+end
+#add_beer(db, "Efes", "Malt", "4.1%", 6)
