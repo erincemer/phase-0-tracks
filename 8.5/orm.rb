@@ -54,6 +54,7 @@ end
 
 #delete_beer(db, "Duvel")
 
+#create a method that updates the menu depending on what the user wants to update
 def update_menu(db)
 
   puts"--------------"
@@ -66,11 +67,11 @@ def update_menu(db)
       break
     elsif input =="name"
 
-      #puts"Which beer name you would like to edit?"
-      #name_to_edit=gets.chomp
+      puts"Which beer name you would like to edit?"
+      name_to_edit=gets.chomp
       puts"What should be the correct beer name?"
       name=gets.chomp
-      db.execute("UPDATE beer_menu SET name=? WHERE name='Tuborg'",[name])
+      db.execute("UPDATE beer_menu SET name=? WHERE name=?",[name, name_to_edit])
       display(db)
     elsif input=="style"
       puts"Which beer you would like to edit?"
@@ -102,8 +103,9 @@ def update_menu(db)
 
   end
 end
-#update_menu(db)
+update_menu(db)
 
+#create a method that add(INSERT) a new beer to the menu.
 def add_beer(db, name, style, alcohol, price)
   db.execute("INSERT INTO beer_menu(name, style, alcohol, price) VALUES(?, ?, ?, ?)", [name, style, alcohol, price])
   display(db)
