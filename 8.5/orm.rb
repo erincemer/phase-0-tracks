@@ -30,6 +30,7 @@ def create_beer(db, name, style, alcohol, price)
   db.execute("INSERT INTO beer_menu (name, style, alcohol, price) VALUES (?, ?, ?, ?)", [name, style, alcohol, price])
 end
 
+#using Faker create 10 beers for the beer_menu
 #10.times do
 #  create_beer(db, Faker::Beer.name, Faker::Beer.style, Faker::Beer.alcohol, Faker::Number.between(6,9) )
 #end
