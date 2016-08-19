@@ -8,9 +8,9 @@ db.results_as_hash = true
 # write a basic GET route
 # add a query parameter
 # GET /
-get '/' do
-  "#{params[:name]} is #{params[:age]} years old."
-end
+#get '/' do
+#  "#{params[:name]} is #{params[:age]} years old."
+#end
 
 # write a GET route with
 # route parameters
@@ -27,6 +27,7 @@ end
 # all student data
 get '/students' do
   students = db.execute("SELECT * FROM students")
+  students.to_s
   response = ""
   students.each do |student|
     response << "ID: #{student['id']}<br>"
@@ -37,6 +38,28 @@ get '/students' do
   response
 end
 
+#write a GET route that retrieves address
+
+get '/contact' do
+  "142 Solano Blvd. Santa Monica, CA 94123"
+end
+
+get '/great_job' do
+  name = params[:name]
+  if name
+    "Good job, #{name}!"
+  else
+    "Good job!"
+  end
+end
+
+get '/phone_numbers' do
+  work = params[:work]
+  #work.to_s
+  fax = params[:fax]
+  #fax.to_s
+  "You can reach us at #{work}. Our fax number is #{fax}."
+end
 # write a GET route that retrieves
 # a particular student
 
