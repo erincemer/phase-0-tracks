@@ -24,4 +24,10 @@ post '/students' do
   redirect '/'
 end
 
+get '/students/expell'do
+  erb :expel_student
+end
+#post '/students/expell' do
+#  "Expelsion!"
+#end
 # add static resources
